@@ -3,7 +3,10 @@ import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { StyledLink } from "../globalStyles";
+import { Button, StyledLink } from "../globalStyles";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 
 const Container = styled.div`
   height: 80px;
@@ -63,6 +66,18 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+  console.log(user);
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -79,12 +94,23 @@ const Navbar = () => {
           </StyledLink>
         </Center>
         <Right>
-          <StyledLink to="/register">
-            <MenuItem>REGISTER</MenuItem>
-          </StyledLink>
-          <StyledLink to="/login">
-            <MenuItem>LOGIN</MenuItem>
-          </StyledLink>
+          {user ? (
+            <>
+              <StyledLink to="/profile">
+                <MenuItem>{user.displayName.toLocaleUpperCase()}</MenuItem>
+              </StyledLink>
+              <Button onClick={handleSignOut}>SIGN OUT</Button>
+            </>
+          ) : (
+            <>
+              <StyledLink to="/register">
+                <MenuItem>REGISTER</MenuItem>
+              </StyledLink>
+              <StyledLink to="/login">
+                <MenuItem>LOGIN</MenuItem>
+              </StyledLink>
+            </>
+          )}
 
           <StyledLink to="/cart">
             <MenuItem>

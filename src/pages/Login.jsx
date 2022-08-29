@@ -1,5 +1,8 @@
 import styled from "styled-components";
+import { auth } from "../firebase";
 import { mobile } from "../responsive";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Container = styled.div`
   width: 100vw;
@@ -58,17 +61,48 @@ const Link = styled.a`
 `;
 
 const Login = () => {
+  const [user] = useAuthState(auth);
+  const signInWithGoogle = (e) => {
+    e.preventDefault();
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  };
+
   return (
     <Container>
       <Wrapper>
         <Title>SIGN IN</Title>
-        <Form>
-          <Input placeholder="username" />
-          <Input placeholder="password" />
-          <Button>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
-        </Form>
+        {user ? (
+          "you're signed in"
+        ) : (
+          <Form>
+            <Input placeholder="username" />
+            <Input placeholder="password" />
+            <Button>LOGIN</Button>
+            <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+            <Link>CREATE A NEW ACCOUNT</Link>
+            <Button onClick={signInWithGoogle}>Sign in with google</Button>
+          </Form>
+        )}
       </Wrapper>
     </Container>
   );
