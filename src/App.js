@@ -9,11 +9,19 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Footer from "./components/Footer";
 import Announcement from "./components/Announcement";
+import ProductList from "./pages/ProductList";
+import Product from "./pages/Product";
+import { firebaseApp } from "./firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
+const app = firebaseApp;
+console.log(app);
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <GlobalStyle />
         <ToastContainer position="bottom-center" limit={1} />
         <Navbar />
         <Announcement />
@@ -22,6 +30,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/productlist" element={<ProductList />} />
+          <Route path="/productlist/:slug" element={<Product />} />
         </Routes>
         <Footer />
       </BrowserRouter>

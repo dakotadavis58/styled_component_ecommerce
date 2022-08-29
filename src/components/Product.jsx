@@ -67,6 +67,11 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
+  const curItem = item;
+  const handleClick = (item) => {
+    console.log(item);
+  };
+
   return (
     <Container>
       <Circle />
@@ -75,7 +80,7 @@ const Product = ({ item }) => {
         <Icon>
           <ShoppingCartOutlined />
         </Icon>
-        <Icon>
+        <Icon onClick={() => handleClick(curItem)}>
           <SearchOutlined />
         </Icon>
         <Icon>

@@ -46,13 +46,17 @@ const Button = styled.button`
 `;
 
 const Newsletter = () => {
+  const handleClick = () => {
+    console.log("newsletter button clicked");
+  };
+
   return (
     <Container>
       <Title>Newsletter</Title>
       <Desc>Get timely updates from your favorite products.</Desc>
       <InputContainer>
         <Input placeholder="Your email" />
-        <Button>
+        <Button onClick={handleClick}>
           <Send />
         </Button>
       </InputContainer>

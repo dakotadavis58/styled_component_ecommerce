@@ -6,9 +6,20 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-family: 'Source Sans Pro', sans-serif;
+        /* font-family: 'Source Sans Pro', sans-serif; */
     }
 `;
+
+export const COLORS = {
+  primaryGreen: "#219c1f",
+  lightGreen: "#2dd52a",
+  darkGreen: "#041504",
+  purple: "#9900cc",
+  lightPurp: "#d966ff",
+  darkBg: "#111111",
+  almostWhite: "#ebebeb",
+  lightGrey: "#a9b3c1",
+};
 
 export const Container = styled.div`
   z-index: 1;

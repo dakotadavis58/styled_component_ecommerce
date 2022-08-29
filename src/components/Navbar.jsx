@@ -74,13 +74,18 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>DNDEV</Logo>
+          <StyledLink to="/">
+            <Logo>DNDEV</Logo>
+          </StyledLink>
         </Center>
         <Right>
           <StyledLink to="/register">
             <MenuItem>REGISTER</MenuItem>
           </StyledLink>
-          <MenuItem>LOGIN</MenuItem>
+          <StyledLink to="/login">
+            <MenuItem>LOGIN</MenuItem>
+          </StyledLink>
+
           <StyledLink to="/cart">
             <MenuItem>
               <Badge badgeContent={4} color="primary" overlap="rectangular">
