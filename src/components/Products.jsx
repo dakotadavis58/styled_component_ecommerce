@@ -9,14 +9,20 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const Products = () => {
+const Products = ({ data }) => {
+  const handleProductClick = () => {
+    console.log("product clicked");
+  };
+
   return (
     <Container>
       {popularProducts.map((item) => (
-        <Product item={item} key={item.id} />
+        <Product item={item} key={item.id} onClick={() => handleProductClick} />
       ))}
     </Container>
   );
 };
 
 export default Products;
+
+// data.map((item) => <Product item={item} key={item.id} />)

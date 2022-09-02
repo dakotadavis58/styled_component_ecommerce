@@ -4,7 +4,6 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Button, StyledLink } from "../globalStyles";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 
@@ -65,16 +64,16 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
-const Navbar = () => {
-  const [user] = useAuthState(auth);
-  console.log(user);
+const Navbar = ({ user }) => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
+        console.log("Signout successful");
         // Sign-out successful.
       })
       .catch((error) => {
         // An error happened.
+        console.log(`Error: ${error}`);
       });
   };
 

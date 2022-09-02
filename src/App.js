@@ -10,14 +10,19 @@ import Footer from "./components/Footer";
 import Announcement from "./components/Announcement";
 import ProductList from "./pages/ProductList";
 import Product from "./pages/Product";
+import { Profile } from "./pages/Profile";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebase";
 
 function App() {
+  const [user] = useAuthState(auth);
+
   return (
     <>
       <BrowserRouter>
         <GlobalStyle />
         <ToastContainer position="bottom-center" limit={1} />
-        <Navbar />
+        <Navbar user={user} />
         <Announcement />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -26,6 +31,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/productlist" element={<ProductList />} />
           <Route path="/productlist/:slug" element={<Product />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<h1>404: Page not found</h1>} />
         </Routes>
         <Footer />

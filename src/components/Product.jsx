@@ -23,7 +23,7 @@ const Info = styled.div`
 `;
 
 const Container = styled.div`
-  flex: 1;
+  flex: 1 1 auto;
   margin: 5px;
   min-width: 280px;
   height: 350px;
@@ -48,6 +48,7 @@ const Circle = styled.div`
 const Image = styled.img`
   height: 75%;
   z-index: 2;
+  width: 75%;
 `;
 
 const Icon = styled.div`
@@ -75,7 +76,7 @@ const Product = ({ item }) => {
   return (
     <Container>
       <Circle />
-      <Image src={item.img} />
+      <Image src={item.image} />
       <Info>
         <Icon>
           <ShoppingCartOutlined />
