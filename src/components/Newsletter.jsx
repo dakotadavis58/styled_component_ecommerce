@@ -1,5 +1,5 @@
-import { Send } from "@material-ui/icons";
 import styled from "styled-components";
+import SendIcon from "@mui/icons-material/Send";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -57,7 +57,7 @@ const Newsletter = () => {
       <InputContainer>
         <Input placeholder="Your email" />
         <Button onClick={handleClick}>
-          <Send />
+          <SendIcon />
         </Button>
       </InputContainer>
     </Container>

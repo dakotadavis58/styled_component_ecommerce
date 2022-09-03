@@ -1,5 +1,9 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import styled from "styled-components";
+import { auth } from "../firebase";
+import { Button } from "../globalStyles";
 
 const Container = styled.div`
   height: 90vh;
@@ -25,10 +29,28 @@ const EditButton = styled.h2``;
 const PhoneNumber = styled.h2``;
 
 export const Profile = () => {
+  const [user] = useAuthState(auth);
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Signout successful");
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(`Error: ${error}`);
+      });
+  };
   return (
     <Container>
       <Wrapper>
         <Title>Profile</Title>
+        {user ? (
+          <Button onClick={handleSignOut}>Sign out</Button>
+        ) : (
+          <div>Sign in up top</div>
+        )}
       </Wrapper>
     </Container>
   );

@@ -1,4 +1,5 @@
-import { Add, Remove } from "@material-ui/icons";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 import styled from "styled-components";
 
 import Newsletter from "../components/Newsletter";
@@ -149,9 +150,9 @@ const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove />
+              <RemoveCircleOutlineOutlinedIcon />
               <Amount>1</Amount>
-              <Add />
+              <AddCircleOutlineOutlinedIcon />
             </AmountContainer>
             <Button>ADD TO CART</Button>
           </AddContainer>

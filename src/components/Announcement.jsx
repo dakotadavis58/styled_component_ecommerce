@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { COLORS } from "../globalStyles";
 
 const Container = styled.div`
   height: 30px;
-  background-color: #8219ec;
+  background-color: ${COLORS.purple};
   color: #ffffff;
   display: flex;
   align-items: center;

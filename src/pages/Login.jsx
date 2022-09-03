@@ -3,6 +3,7 @@ import { auth } from "../firebase";
 import { mobile } from "../responsive";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { COLORS } from "../globalStyles";
 
 const Container = styled.div`
   width: 100vw;
@@ -25,6 +26,12 @@ const Wrapper = styled.div`
   background-color: white;
   ${mobile({ width: "75%" })}
 `;
+const BtnWrapper = styled.div`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  ${mobile({ flexDirection: "column" })}
+`;
 
 const Title = styled.h1`
   font-size: 24px;
@@ -45,12 +52,12 @@ const Input = styled.input`
 
 const Button = styled.button`
   width: 40%;
+  max-height: 80%;
   border: none;
   padding: 15px 20px;
-  background-color: teal;
+  background-color: ${COLORS.purple};
   color: white;
   cursor: pointer;
-  margin-bottom: 10px;
 `;
 
 const Link = styled.a`
@@ -97,10 +104,12 @@ const Login = () => {
           <Form>
             <Input placeholder="username" />
             <Input placeholder="password" />
-            <Button>LOGIN</Button>
-            <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-            <Link>CREATE A NEW ACCOUNT</Link>
-            <Button onClick={signInWithGoogle}>Sign in with google</Button>
+            <BtnWrapper>
+              <Button style={{ marginRight: "10px" }}>LOGIN</Button>
+              <Button onClick={signInWithGoogle}>Sign in with google</Button>
+            </BtnWrapper>
+            <Link>FORGOT PASSWORD?</Link>
+            <Link>CREATE ACCOUNT</Link>
           </Form>
         )}
       </Wrapper>

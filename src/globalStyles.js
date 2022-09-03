@@ -19,6 +19,7 @@ export const COLORS = {
   darkBg: "#111111",
   almostWhite: "#ebebeb",
   lightGrey: "#a9b3c1",
+  btnColor: "",
 };
 
 export const Container = styled.div`
@@ -43,11 +44,11 @@ export const StyledLink = styled(Link)`
 
 export const Button = styled.button`
   border-radius: 4px;
-  background: ${({ primary }) => (primary ? "#4B59F7" : "#0467FB")};
+  background: ${({ primary }) => (primary ? COLORS.lightPurp : COLORS.purple)};
   white-space: nowrap;
-  padding: ${({ big }) => (big ? "12px 64px" : "10px 20px")};
+  padding: ${({ big }) => (big ? "12px 64px" : "5px 10px")};
   color: #fff;
-  font-size: ${({ fontBig }) => (fontBig ? "20px" : "16px")};
+  font-size: ${({ fontBig }) => (fontBig ? "20px" : "14px")};
   outline: none;
   border: none;
   cursor: pointer;
@@ -55,7 +56,8 @@ export const Button = styled.button`
   &:hover {
     transition: all 0.3s ease-out;
     background: #fff;
-    background: ${({ primary }) => (primary ? "#0467FB" : "#4B59F7")};
+    background: ${({ primary }) =>
+      primary ? COLORS.purple : COLORS.lightPurp};
   }
 
   @media screen and (max-width: 960px) {

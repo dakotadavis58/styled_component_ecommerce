@@ -1,0 +1,4 @@
+9/3 - TODO: 
+    find better images that match data categories
+    define a globally styled button
+    

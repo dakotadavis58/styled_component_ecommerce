@@ -1,6 +1,8 @@
-import React from "react";
-import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import React, { useState } from "react";
+import Badge from "@mui/material/Badge";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Button, StyledLink } from "../globalStyles";
@@ -8,7 +10,7 @@ import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 
 const Container = styled.div`
-  height: 80px;
+  height: 60px;
   ${mobile({ height: "50px" })}
 `;
 
@@ -76,45 +78,47 @@ const Navbar = ({ user }) => {
         console.log(`Error: ${error}`);
       });
   };
-
   return (
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
-          <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer>
-        </Left>
-        <Center>
           <StyledLink to="/">
             <Logo>DNDEV</Logo>
           </StyledLink>
-        </Center>
+          <StyledLink to="/products/category">
+            <MenuItem>Category</MenuItem>
+          </StyledLink>
+          <StyledLink to="/products/category">
+            <MenuItem>Category</MenuItem>
+          </StyledLink>
+          <StyledLink to="/products/category">
+            <MenuItem>Category</MenuItem>
+          </StyledLink>
+          <StyledLink to="/products/category">
+            <MenuItem>Category</MenuItem>
+          </StyledLink>
+          <StyledLink to="/products/category">
+            <MenuItem>Category</MenuItem>
+          </StyledLink>
+        </Left>
+        <Center></Center>
         <Right>
-          {user ? (
-            <>
-              <StyledLink to="/profile">
-                <MenuItem>{user.displayName.toLocaleUpperCase()}</MenuItem>
-              </StyledLink>
-              <Button onClick={handleSignOut}>SIGN OUT</Button>
-            </>
-          ) : (
-            <>
-              <StyledLink to="/register">
-                <MenuItem>REGISTER</MenuItem>
-              </StyledLink>
-              <StyledLink to="/login">
-                <MenuItem>LOGIN</MenuItem>
-              </StyledLink>
-            </>
-          )}
+          <Language>EN</Language>
+          <SearchContainer>
+            <Input placeholder="Search" />
+            <SearchOutlinedIcon style={{ color: "gray", fontSize: 16 }} />
+          </SearchContainer>
+
+          <StyledLink to={user ? "/profile" : "/login"}>
+            <MenuItem>
+              <PersonOutlineOutlinedIcon />
+            </MenuItem>
+          </StyledLink>
 
           <StyledLink to="/cart">
             <MenuItem>
               <Badge badgeContent={4} color="primary" overlap="rectangular">
-                <ShoppingCartOutlined />
+                <ShoppingCartOutlinedIcon />
               </Badge>
             </MenuItem>
           </StyledLink>

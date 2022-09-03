@@ -22,8 +22,8 @@ function App() {
       <BrowserRouter>
         <GlobalStyle />
         <ToastContainer position="bottom-center" limit={1} />
-        <Navbar user={user} />
         <Announcement />
+        <Navbar user={user} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />

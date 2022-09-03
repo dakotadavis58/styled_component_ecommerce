@@ -1,12 +1,9 @@
-import {
-  Facebook,
-  Instagram,
-  MailOutline,
-  Phone,
-  Pinterest,
-  Room,
-  Twitter,
-} from "@material-ui/icons";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import HomeIcon from "@mui/icons-material/Home";
+import PhoneIcon from "@mui/icons-material/Phone";
+import MailIcon from "@mui/icons-material/Mail";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
@@ -95,16 +92,13 @@ const Footer = () => {
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
-            <Facebook />
+            <FacebookIcon />
           </SocialIcon>
           <SocialIcon color="E4405F">
-            <Instagram />
+            <InstagramIcon />
           </SocialIcon>
           <SocialIcon color="55ACEE">
-            <Twitter />
-          </SocialIcon>
-          <SocialIcon color="E60023">
-            <Pinterest />
+            <TwitterIcon />
           </SocialIcon>
         </SocialContainer>
       </Left>
@@ -126,14 +120,14 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room style={{ marginRight: "10px" }} /> 622 Dixie Path , South
+          <HomeIcon style={{ marginRight: "10px" }} /> 622 Dixie Path , South
           Tobinchester 98336
         </ContactItem>
         <ContactItem>
-          <Phone style={{ marginRight: "10px" }} /> +1 234 56 78
+          <PhoneIcon style={{ marginRight: "10px" }} /> +1 234 56 78
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{ marginRight: "10px" }} /> contact@lama.dev
+          <MailIcon style={{ marginRight: "10px" }} /> contact@lama.dev
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
