@@ -29,7 +29,7 @@ const Home = () => {
     <div>
       <Slider />
       <Categories />
-      <Products data={data} isLoading={isLoading} />
+      <Products />
       <Newsletter />
     </div>
   );
