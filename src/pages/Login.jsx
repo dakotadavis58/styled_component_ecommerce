@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { auth } from "../firebase";
-import { mobile } from "../responsive";
+import { phone } from "../responsive";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { COLORS } from "../globalStyles";
@@ -24,13 +24,13 @@ const Wrapper = styled.div`
   width: 25%;
   padding: 20px;
   background-color: white;
-  ${mobile({ width: "75%" })}
+  ${phone({ width: "75%" })}
 `;
 const BtnWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  ${mobile({ flexDirection: "column" })}
+  ${phone({ flexDirection: "column" })}
 `;
 
 const Title = styled.h1`

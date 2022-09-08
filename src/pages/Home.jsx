@@ -10,20 +10,20 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await getDocs(collection(db, "fakeProducts"));
-        setIsLoading(false);
-        setData(result);
-        console.log(result);
-        console.log("gathered data successfully");
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const result = await getDocs(collection(db, "fakeProducts"));
+  //       setIsLoading(false);
+  //       setData(result);
+  //       console.log(result);
+  //       console.log("gathered data successfully");
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <div>

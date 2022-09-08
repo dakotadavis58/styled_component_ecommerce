@@ -5,11 +5,11 @@ import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MailIcon from "@mui/icons-material/Mail";
 import styled from "styled-components";
-import { mobile } from "../responsive";
+import { phone } from "../responsive";
 
 const Container = styled.div`
   display: flex;
-  ${mobile({ flexDirection: "column" })}
+  ${phone({ flexDirection: "column" })}
 `;
 
 const Left = styled.div`
@@ -44,7 +44,7 @@ const SocialIcon = styled.div`
 const Center = styled.div`
   flex: 1;
   padding: 20px;
-  ${mobile({ display: "none" })}
+  ${phone({ display: "none" })}
 `;
 
 const Title = styled.h3`
@@ -67,7 +67,7 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   padding: 20px;
-  ${mobile({ backgroundColor: "#fff8f8" })}
+  ${phone({ backgroundColor: "#fff8f8" })}
 `;
 
 const ContactItem = styled.div`
@@ -120,8 +120,7 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <HomeIcon style={{ marginRight: "10px" }} /> 622 Dixie Path , South
-          Tobinchester 98336
+          <HomeIcon style={{ marginRight: "10px" }} /> Alfred, Maine 04002
         </ContactItem>
         <ContactItem>
           <PhoneIcon style={{ marginRight: "10px" }} /> +1 234 56 78

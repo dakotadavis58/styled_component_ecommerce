@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import ProductContext from "../contexts/ProductContext";
 import { popularProducts } from "../data";
 import Product from "./Product";
 
@@ -9,15 +11,16 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const Products = ({ data }) => {
+const Products = () => {
+  const products = useContext(ProductContext);
   const handleProductClick = () => {
     console.log("product clicked");
   };
 
   return (
     <Container>
-      {popularProducts.map((item) => (
-        <Product item={item} key={item.id} onClick={() => handleProductClick} />
+      {products.map((item) => (
+        <Product item={item} key={item.id} />
       ))}
     </Container>
   );
