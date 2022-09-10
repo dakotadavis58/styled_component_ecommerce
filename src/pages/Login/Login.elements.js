@@ -1,5 +1,6 @@
 import { COLORS } from "../../globalStyles";
-import { phone } from "../../responsive";
+import { mobile, phone } from "../../responsive";
+import GoogleButton from "react-google-button";
 
 const { default: styled } = require("styled-components");
 
@@ -10,7 +11,7 @@ export const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://www.acquisition-international.com/wp-content/uploads/2020/01/tech-cruve.jpg")
       center;
   background-size: cover;
   display: flex;
@@ -19,16 +20,20 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 25%;
+  width: 50%;
+  max-width: 600px;
   padding: 20px;
   background-color: white;
+  flex-direction: column;
+
+  ${mobile({ width: "60%" })}
   ${phone({ width: "75%" })}
 `;
 export const BtnWrapper = styled.div`
-  flex-direction: row;
+  display: flex;
   justify-content: center;
   align-items: center;
-  ${phone({ flexDirection: "column" })}
+  ${mobile({ flexDirection: "column" })}
 `;
 
 export const Title = styled.h1`
@@ -49,10 +54,11 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 40%;
+  width: 240px;
   max-height: 80%;
   border: none;
   padding: 15px 20px;
+  margin: 10px;
   background-color: ${COLORS.purple};
   color: white;
   cursor: pointer;
@@ -63,4 +69,9 @@ export const Link = styled.a`
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
+`;
+
+export const GoogleBtn = styled(GoogleButton)`
+  font-size: 4rem;
+  ${mobile({ marginBottom: "20px" })}
 `;

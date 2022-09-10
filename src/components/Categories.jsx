@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { categories } from "../data";
+import { categoryCards } from "../data";
 import { phone } from "../responsive";
 import CategoryItem from "./CategoryItem";
 
@@ -13,7 +13,7 @@ const Container = styled.div`
 const Categories = () => {
   return (
     <Container>
-      {categories.map((item) => (
+      {categoryCards.map((item) => (
         <CategoryItem item={item} key={item.id} />
       ))}
     </Container>

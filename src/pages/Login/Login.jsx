@@ -6,6 +6,7 @@ import {
   Button,
   Container,
   Form,
+  GoogleBtn,
   Input,
   Link,
   Title,
@@ -50,8 +51,10 @@ const Login = () => {
             <Input placeholder="username" />
             <Input placeholder="password" />
             <BtnWrapper>
-              <Button style={{ marginRight: "10px" }}>LOGIN</Button>
-              <Button onClick={signInWithGoogle}>Sign in with google</Button>
+              <Button>LOGIN</Button>
+              <GoogleBtn type="light" onClick={signInWithGoogle}>
+                Sign in with google
+              </GoogleBtn>
             </BtnWrapper>
             <Link>FORGOT PASSWORD?</Link>
             <Link>CREATE ACCOUNT</Link>

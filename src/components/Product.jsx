@@ -1,27 +1,29 @@
 import React from "react";
 import styled from "styled-components";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { phone } from "../responsive";
 
 const Container = styled.div`
-  border: 1px solid gray;
   flex-direction: column;
   margin: 10px;
   min-width: 280px;
   max-width: 400px;
-  height: 400px;
+  width: 25rem;
+  height: 25rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 1s;
   ${phone({ width: "90vw" })}
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const Image = styled.img`
-  height: 75%;
+  height: 10rem;
+  width: 10rem;
   z-index: 2;
-  width: 75%;
   max-width: 10rem;
 `;
 const Info = styled.div`
@@ -30,14 +32,14 @@ const Info = styled.div`
   height: 20%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: start;
   transition: all 0.5s ease;
+  padding: 2rem;
 `;
 
 const Title = styled.h3`
   font-size: medium;
-  padding: 1rem;
 `;
 const Subtitle = styled.h5``;
 const Price = styled.span``;

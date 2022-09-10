@@ -1,43 +1,61 @@
 export const sliderItems = [
   {
     id: 2,
-    img: "https://i.ibb.co/DG69bQ4/2.png",
+    img: "https://firebasestorage.googleapis.com/v0/b/styled-ecommerce-app.appspot.com/o/elite_45e_copperblack_1.webp?alt=media&token=d5c77779-be9d-4b37-99ed-9a303adf318c",
     title: "AUTUMN COLLECTION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "fcf1ed",
+    bg: "32a852",
   },
   {
     id: 3,
-    img: "https://i.ibb.co/cXFnLLV/3.png",
+    img: "https://media.wired.com/photos/5fb2cc575c9914713ead03de/master/w_1920,c_limit/Gear-Apple-MacBook-Air-top-down-SOURCE-Apple.jpg",
     title: "LOUNGEWEAR LOVE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "fbf0f4",
+    bg: "3212b8",
   },
   {
     id: 1,
-    img: "https://i.imgur.com/6D0pkgi.jpg",
+    img: "https://www.popsci.com/uploads/2022/06/20/best-monitors-for-streaming.jpg?auto=webp&width=1440&height=936",
     title: "WINTER SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "EAEAEA",
+    bg: "ffffff",
+  },
+];
+
+export const categoryCards = [
+  {
+    id: 1,
+    img: "https://media.gq-magazine.co.uk/photos/62bc479db9eaa411050fd8e0/3:2/w_1620,h_1080,c_limit/H_01.jpg",
+    title: "HEADPHONES",
+  },
+  {
+    id: 2,
+    img: "https://s.yimg.com/uu/api/res/1.2/mQ3wMdW0.qoJriEnsTwoAA--~B/aD0xMjAwO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2022-07/4a425a40-fd56-11ec-beee-be16b8848f18.cf.jpg",
+    title: "LAPTOPS",
+  },
+  {
+    id: 3,
+    img: "https://assets-prd.ignimgs.com/2022/06/10/computer-speakers-2-1654886612251.jpg",
+    title: "SPEAKERS",
   },
 ];
 
 export const categories = [
-  {
-    id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "SHIRT STYLE!",
-  },
-  {
-    id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "LOUNGEWEAR LOVE",
-  },
-  {
-    id: 3,
-    img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    title: "LIGHT JACKETS",
-  },
+  "Laptops",
+  "Headphones",
+  "TVs",
+  "Speakers",
+  "Monitors",
+];
+export const footerLinks = [
+  "Home",
+  "Shop",
+  "Wishlist",
+  "Orders",
+  "Cart",
+  "Profile",
+  "Careers",
+  "Terms",
 ];
 
 export const popularProducts = [

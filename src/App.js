@@ -1,12 +1,12 @@
 import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyle from "./globalStyles";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import { ToastContainer } from "react-toastify";
 import Cart from "./pages/Cart/Cart";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import Announcement from "./components/Announcement";
 import ProductList from "./pages/ProductList.js/ProductList";
 import Product from "./pages/Product.js/Product";
