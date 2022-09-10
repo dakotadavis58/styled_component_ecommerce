@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLORS } from "../../globalStyles";
 import { mobile, phone } from "../../responsive";
 
 export const Container = styled.div`
@@ -56,6 +57,9 @@ export const MenuItem = styled.div`
   cursor: pointer;
   margin-left: 25px;
   ${phone({ fontSize: "12px", marginLeft: "10px" })}
+  &:hover {
+    border-bottom: ${COLORS.purple} solid;
+  }
 `;
 
 export const Categories = styled.div`

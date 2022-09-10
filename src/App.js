@@ -16,7 +16,7 @@ import { auth } from "./firebase";
 import { useSelector } from "react-redux";
 
 function App() {
-  const ruser = useSelector((state) => state.user.currentUser);
+  // const ruser = useSelector((state) => state.user.currentUser);
   const [user] = useAuthState(auth);
 
   return (
@@ -40,8 +40,8 @@ function App() {
           ) : (
             <Route path="/register" element={<Register />} />
           )}
-          <Route path="/productlist" element={<ProductList />} />
-          <Route path="/productlist/:id" element={<Product />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/products/:id" element={<Product />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<h1>404: Page not found</h1>} />
         </Routes>

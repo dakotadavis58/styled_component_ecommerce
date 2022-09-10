@@ -12,6 +12,7 @@ import {
   Title,
   Wrapper,
 } from "./Login.elements";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const [user] = useAuthState(auth);
@@ -45,7 +46,10 @@ const Login = () => {
       <Wrapper>
         <Title>SIGN IN</Title>
         {user ? (
-          "you're signed in"
+          <>
+            "you're signed in"
+            <Navigate to="/" />
+          </>
         ) : (
           <Form>
             <Input placeholder="username" />

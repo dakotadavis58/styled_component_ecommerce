@@ -68,8 +68,8 @@ const Navbar = ({ user }) => {
           </StyledLink>
           <Categories onClick={handleClick} click={click}>
             {categories.map((category) => (
-              <StyledLink to="/products/category">
-                <MenuItem>{category}</MenuItem>
+              <StyledLink key={category} to="/products/category">
+                <MenuItem key={category}>{category}</MenuItem>
               </StyledLink>
             ))}
           </Categories>

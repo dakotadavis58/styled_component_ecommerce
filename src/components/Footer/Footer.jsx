@@ -51,7 +51,7 @@ const Footer = () => {
         <Title>Useful Links</Title>
         <List>
           {footerLinks.map((link) => {
-            return <ListItem>{link}</ListItem>;
+            return <ListItem key={link}>{link}</ListItem>;
           })}
         </List>
       </Center>

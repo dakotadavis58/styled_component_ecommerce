@@ -1,5 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import Categories from "../components/Categories";
 import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
