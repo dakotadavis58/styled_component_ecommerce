@@ -1,24 +1,26 @@
+const { COLORS } = require("./globalStyles");
 export const sliderItems = [
   {
     id: 2,
     img: "https://firebasestorage.googleapis.com/v0/b/styled-ecommerce-app.appspot.com/o/elite_45e_copperblack_1.webp?alt=media&token=d5c77779-be9d-4b37-99ed-9a303adf318c",
     title: "AUTUMN COLLECTION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "32a852",
+    bg: "#9b70b7",
   },
   {
     id: 3,
-    img: "https://media.wired.com/photos/5fb2cc575c9914713ead03de/master/w_1920,c_limit/Gear-Apple-MacBook-Air-top-down-SOURCE-Apple.jpg",
+    img: "https://www.asus.com/media/Odin/Websites/global/ProductLine/20210913111446.png",
     title: "LOUNGEWEAR LOVE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "3212b8",
+    bg: COLORS.pink,
   },
   {
     id: 1,
-    img: "https://www.popsci.com/uploads/2022/06/20/best-monitors-for-streaming.jpg?auto=webp&width=1440&height=936",
+    img: "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1530/innergigabyteimages/bg1.png",
     title: "WINTER SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "ffffff",
+    bg: "#5e9bd0",
+    bg2: "#deb7ff",
   },
 ];
 
@@ -35,7 +37,7 @@ export const categoryCards = [
   },
   {
     id: 3,
-    img: "https://assets-prd.ignimgs.com/2022/06/10/computer-speakers-2-1654886612251.jpg",
+    img: "https://www.techhive.com/wp-content/uploads/2022/01/th-bt-speaker-hub-2019new-100816121-orig.jpg?quality=50&strip=all",
     title: "SPEAKERS",
   },
 ];
@@ -48,14 +50,38 @@ export const categories = [
   "Monitors",
 ];
 export const footerLinks = [
-  "Home",
-  "Shop",
-  "Wishlist",
-  "Orders",
-  "Cart",
-  "Profile",
-  "Careers",
-  "Terms",
+  {
+    title: "Home",
+    link: "/",
+  },
+  {
+    title: "Shop",
+    link: "#",
+  },
+  {
+    title: "Wishlist",
+    link: "#",
+  },
+  {
+    title: "Orders",
+    link: "#",
+  },
+  {
+    title: "Cart",
+    link: "/cart",
+  },
+  {
+    title: "Profile",
+    link: "/profile",
+  },
+  {
+    title: "Careers",
+    link: "#",
+  },
+  {
+    title: "Terms",
+    link: "#",
+  },
 ];
 
 export const popularProducts = [

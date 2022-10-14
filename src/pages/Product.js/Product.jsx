@@ -1,7 +1,13 @@
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 import Newsletter from "../../components/Newsletter";
+import { addProduct } from "../../redux/cartRedux";
+import { publicRequest } from "../../requestMethods";
+import { ProductPrice } from "../Cart/Cart.elements";
 import {
   AddContainer,
   Amount,
@@ -24,47 +30,63 @@ import {
 } from "./Product.elements";
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get("/products/find/" + id);
+        setProduct(res.data);
+      } catch {}
+    };
+    getProduct();
+  }, [id]);
+
+  const handleDec = () => {
+    const n = quantity;
+    n <= 0 ? setQuantity(0) : setQuantity(n - 1);
+  };
+  const handleInc = () => {
+    const n = quantity;
+    setQuantity(n + 1);
+  };
+
+  const handleAddToCart = () => {
+    dispatch(
+      addProduct({
+        ...product,
+        quantity,
+        price: product.price * quantity,
+      })
+    );
+  };
+
   return (
     <Container>
       <Wrapper>
         <ImgContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+          <Image src={product.image} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
-          <Desc>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-            tristique tortor pretium ut. Curabitur elit justo, consequat id
-            condimentum ac, volutpat ornare.
-          </Desc>
-          <Price>$ 20</Price>
-          <FilterContainer>
-            <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
-            </Filter>
-            <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
-          </FilterContainer>
+          <Title>{product.name}</Title>
+          <Desc>{product.description}</Desc>
+          <Price>${product.price}</Price>
           <AddContainer>
             <AmountContainer>
-              <RemoveCircleOutlineOutlinedIcon />
-              <Amount>1</Amount>
-              <AddCircleOutlineOutlinedIcon />
+              <RemoveCircleOutlineOutlinedIcon onClick={handleDec} />
+              <Amount>{quantity}</Amount>
+              <AddCircleOutlineOutlinedIcon onClick={handleInc} />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button
+              onClick={handleAddToCart}
+              disabled={quantity === 0 ? true : false}
+            >
+              ADD TO CART
+            </Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

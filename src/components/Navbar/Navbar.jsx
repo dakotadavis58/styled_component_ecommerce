@@ -6,6 +6,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Badge from "@mui/material/Badge";
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { categories } from "../../data";
 import { auth } from "../../firebase";
 import { StyledLink } from "../../globalStyles";
@@ -24,7 +25,9 @@ import {
   Wrapper,
 } from "./Navbar.elements";
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
+  const user = useSelector((state) => state.user);
+  const cartQuantity = useSelector((state) => state.cart.quantity);
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -68,7 +71,10 @@ const Navbar = ({ user }) => {
           </StyledLink>
           <Categories onClick={handleClick} click={click}>
             {categories.map((category) => (
-              <StyledLink key={category} to="/products/category">
+              <StyledLink
+                key={category}
+                to={`/products/${category.toLowerCase()}`}
+              >
                 <MenuItem key={category}>{category}</MenuItem>
               </StyledLink>
             ))}
@@ -82,7 +88,7 @@ const Navbar = ({ user }) => {
             <SearchOutlinedIcon style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
 
-          <StyledLink to={user ? "/profile" : "/login"}>
+          <StyledLink to={"profile"}>
             <MenuItem>
               <PersonOutlineOutlinedIcon />
             </MenuItem>
@@ -90,7 +96,11 @@ const Navbar = ({ user }) => {
 
           <StyledLink to="/cart">
             <MenuItem>
-              <Badge badgeContent={4} color="primary" overlap="rectangular">
+              <Badge
+                badgeContent={cartQuantity}
+                color="primary"
+                overlap="rectangular"
+              >
                 <ShoppingCartOutlinedIcon />
               </Badge>
             </MenuItem>

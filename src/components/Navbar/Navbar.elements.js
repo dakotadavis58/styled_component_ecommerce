@@ -4,6 +4,7 @@ import { mobile, phone } from "../../responsive";
 
 export const Container = styled.div`
   height: 60px;
+  border-bottom: 3px transparent solid;
 `;
 
 export const Wrapper = styled.div`
@@ -58,7 +59,7 @@ export const MenuItem = styled.div`
   margin-left: 25px;
   ${phone({ fontSize: "12px", marginLeft: "10px" })}
   &:hover {
-    border-bottom: ${COLORS.purple} solid;
+    border-bottom: ${COLORS.primary} 3px solid;
   }
 `;
 

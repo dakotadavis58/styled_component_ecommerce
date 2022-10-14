@@ -44,7 +44,11 @@ const Slide = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #${(props) => props.bg};
+  background-color: ${(props) => props.bg};
+  background-image: linear-gradient(
+    ${(props) => props.bg},
+    ${(props) => props.bg2}
+  );
 `;
 const ImgContainer = styled.div`
   height: 100%;

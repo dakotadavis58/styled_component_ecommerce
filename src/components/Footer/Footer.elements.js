@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+
 const { default: styled } = require("styled-components");
 const { phone } = require("../../responsive");
 
 export const Container = styled.div`
   display: flex;
+  margin-top: auto;
   ${phone({ flexDirection: "column" })}
 `;
 
@@ -25,7 +28,7 @@ export const SocialContainer = styled.div`
   justify-content: space-evenly;
 `;
 
-export const SocialIcon = styled.div`
+export const SocialIcon = styled.a`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -41,7 +44,7 @@ export const Center = styled.div`
   flex: 1;
   padding: 20px;
   ${phone({ display: "none" })}
-  border-right: 2px solid gray
+  border-right: 2px solid gray;
 `;
 
 export const Title = styled.h3`
@@ -56,9 +59,11 @@ export const List = styled.ul`
   flex-wrap: wrap;
 `;
 
-export const ListItem = styled.li`
+export const ListItem = styled.a`
   width: 50%;
   margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
 `;
 
 export const Right = styled.div`
@@ -67,10 +72,12 @@ export const Right = styled.div`
   ${phone({ backgroundColor: "#fff8f8" })}
 `;
 
-export const ContactItem = styled.div`
+export const ContactItem = styled.a`
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: black;
 `;
 
 export const Payment = styled.img`

@@ -5,6 +5,7 @@ import {
   BtnWrapper,
   Button,
   Container,
+  Error,
   Form,
   GoogleBtn,
   Input,
@@ -13,57 +14,46 @@ import {
   Wrapper,
 } from "./Login.elements";
 import { Navigate } from "react-router-dom";
+import { useState } from "react";
+import { login } from "../../redux/apiCalls";
+import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
-  const [user] = useAuthState(auth);
-  const signInWithGoogle = (e) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const { isFetching, error } = useSelector((state) => state.user);
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        // const credential = GoogleAuthProvider.credentialFromResult(result);
-        // const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-        // ...
-      })
-      .catch((error) => {
-        // // Handle Errors here.
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
-        // // The email of the user's account used.
-        // const email = error.customData.email;
-        // // The AuthCredential type that was used.
-        // const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
+    login(dispatch, { username, password });
   };
 
   return (
     <Container>
       <Wrapper>
         <Title>SIGN IN</Title>
-        {user ? (
-          <>
-            "you're signed in"
-            <Navigate to="/" />
-          </>
-        ) : (
-          <Form>
-            <Input placeholder="username" />
-            <Input placeholder="password" />
-            <BtnWrapper>
-              <Button>LOGIN</Button>
-              <GoogleBtn type="light" onClick={signInWithGoogle}>
+
+        <Form>
+          <Input
+            placeholder="username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Input
+            placeholder="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <BtnWrapper>
+            <Button onClick={handleSubmit} disabled={isFetching}>
+              LOGIN
+            </Button>
+            {/* <GoogleBtn type="light" onClick={signInWithGoogle}>
                 Sign in with google
-              </GoogleBtn>
-            </BtnWrapper>
-            <Link>FORGOT PASSWORD?</Link>
-            <Link>CREATE ACCOUNT</Link>
-          </Form>
-        )}
+              </GoogleBtn> */}
+          </BtnWrapper>
+          {error && <Error>Something went wrong...</Error>}
+          <Link>FORGOT PASSWORD?</Link>
+          <Link href="/register">CREATE ACCOUNT</Link>
+        </Form>
       </Wrapper>
     </Container>
   );

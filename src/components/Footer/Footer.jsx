@@ -36,13 +36,25 @@ const Footer = () => {
           more so come back soon!
         </Desc>
         <SocialContainer>
-          <SocialIcon color="3B5999">
+          <SocialIcon
+            href="https://www.facebook.com"
+            target="_blank"
+            color="3B5999"
+          >
             <FacebookIcon />
           </SocialIcon>
-          <SocialIcon color="E4405F">
+          <SocialIcon
+            href="https://www.instagram.com"
+            target="_blank"
+            color="E4405F"
+          >
             <InstagramIcon />
           </SocialIcon>
-          <SocialIcon color="55ACEE">
+          <SocialIcon
+            href="https://www.twitter.com"
+            target="_blank"
+            color="55ACEE"
+          >
             <TwitterIcon />
           </SocialIcon>
         </SocialContainer>
@@ -51,19 +63,26 @@ const Footer = () => {
         <Title>Useful Links</Title>
         <List>
           {footerLinks.map((link) => {
-            return <ListItem key={link}>{link}</ListItem>;
+            return (
+              <ListItem key={link.title} href={link.link}>
+                {link.title}
+              </ListItem>
+            );
           })}
         </List>
       </Center>
       <Right>
         <Title>Contact</Title>
-        <ContactItem>
+        <ContactItem
+          href="https://maps.google.com/?q=AlfredMaine"
+          target="_blank"
+        >
           <HomeIcon style={{ marginRight: "10px" }} /> Alfred, Maine 04002
         </ContactItem>
-        <ContactItem>
+        <ContactItem href="tel:12345678910" target="_blank">
           <PhoneIcon style={{ marginRight: "10px" }} /> +1 234 567 8910
         </ContactItem>
-        <ContactItem>
+        <ContactItem href="mailto:dakota@dakotadavis.me" target="_blank">
           <MailIcon style={{ marginRight: "10px" }} /> dakota@dakotadavis.me
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />

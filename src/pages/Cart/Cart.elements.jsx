@@ -1,7 +1,10 @@
 const { default: styled } = require("styled-components");
 const { phone } = require("../../responsive");
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  /* display: ; */
+  min-height: 90vh;
+`;
 
 export const Wrapper = styled.div`
   padding: 20px;

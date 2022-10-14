@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { phone } from "../responsive";
 
@@ -7,13 +8,22 @@ const Container = styled.div`
   margin: 3px;
   height: 70vh;
   position: relative;
+  transition: all 0.5s ease;
+  cursor: pointer;
 `;
+
 const Image = styled.img`
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
+  transition: all 0.5s ease;
   ${phone({ height: "20vh" })}
+  &:hover {
+    opacity: 0.3;
+  }
 `;
+
 const Info = styled.div`
   position: absolute;
   top: 0;
@@ -29,22 +39,19 @@ const Title = styled.h1`
   color: white;
   margin-bottom: 20px;
 `;
-const Button = styled.button`
-  border: none;
-  padding: 10px;
-  background-color: white;
-  color: gray;
-  cursor: pointer;
-  font-weight: 600;
-`;
 
 const CategoryItem = ({ item }) => {
+  const navigate = useNavigate();
+  const handleClick = (e) => {
+    e.preventDefault();
+    const cat = e.target.innerText.toLowerCase();
+    navigate(`/products/${cat}`);
+  };
   return (
-    <Container>
+    <Container value={item} onClick={handleClick}>
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
       </Info>
     </Container>
   );

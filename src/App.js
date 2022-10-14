@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import GlobalStyle from "./globalStyles";
 import Navbar from "./components/Navbar/Navbar";
 import { ToastContainer } from "react-toastify";
@@ -16,8 +16,8 @@ import { auth } from "./firebase";
 import { useSelector } from "react-redux";
 
 function App() {
-  // const ruser = useSelector((state) => state.user.currentUser);
-  const [user] = useAuthState(auth);
+  const user = useSelector((state) => state.user.currentUser);
+  // const [googleUser] = useAuthState(auth);
 
   return (
     <>
@@ -25,24 +25,25 @@ function App() {
         <GlobalStyle />
         <ToastContainer position="bottom-center" limit={1} />
         <Announcement />
-        <Navbar user={user} />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          {user ? (
-            <Route path="/login" element={<Home />} />
-          ) : (
-            <Route path="/login" element={<Login />} />
-          )}
-
-          {user ? (
-            <Route path="/register" element={<Home />} />
-          ) : (
-            <Route path="/register" element={<Register />} />
-          )}
+          <Route
+            path="/login"
+            element={user ? <Navigate replace to="/" /> : <Login />}
+          />
+          <Route
+            path="/register"
+            element={user ? <Navigate replace to="/" /> : <Register />}
+          />
           <Route path="/products" element={<ProductList />} />
-          <Route path="/products/:id" element={<Product />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/products/:category" element={<ProductList />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route
+            path="/profile"
+            element={user ? <Profile /> : <Navigate replace to="/login" />}
+          />
           <Route path="*" element={<h1>404: Page not found</h1>} />
         </Routes>
         <Footer />

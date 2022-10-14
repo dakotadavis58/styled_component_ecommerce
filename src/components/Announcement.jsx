@@ -4,7 +4,7 @@ import { COLORS } from "../globalStyles";
 
 const Container = styled.div`
   height: 30px;
-  background-color: ${COLORS.purple};
+  background-color: ${COLORS.medPurp};
   color: #ffffff;
   display: flex;
   align-items: center;

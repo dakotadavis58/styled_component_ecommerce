@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { phone } from "../responsive";
+import { Rating } from "@mui/material";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   flex-direction: column;
@@ -43,22 +45,34 @@ const Title = styled.h3`
 `;
 const Subtitle = styled.h5``;
 const Price = styled.span``;
-
-const Rating = styled.span``;
+const RatingCon = styled.span``;
+const NumReviews = styled.span`
+  justify-content: center;
+`;
 
 const Product = ({ item }) => {
-  const handleClick = (item) => {
-    console.log(item);
+  const { image, name, category, price, rating, numReviews } = item;
+  const navigate = useNavigate();
+  const addToCart = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+  };
+
+  const handleClick = () => {
+    navigate(`/product/${item._id}`);
   };
 
   return (
-    <Container>
-      <Image src={item.image} />
+    <Container onClick={handleClick}>
+      <Image src={image} />
       <Info>
-        <Title>{item.title}</Title>
-        <Subtitle>{item.category}</Subtitle>
-        <Price>{item.price}</Price>
-        <Rating>{item.rating.rate}</Rating>
+        <Title>{name}</Title>
+        <Subtitle>{category}</Subtitle>
+        <Price>{price}</Price>
+        <RatingCon>
+          <Rating name="read-only" value={rating} precision={0.1} readOnly />
+          <NumReviews>{numReviews} reviews</NumReviews>
+        </RatingCon>
       </Info>
     </Container>
   );

@@ -59,7 +59,7 @@ export const Button = styled.button`
   border: none;
   padding: 15px 20px;
   margin: 10px;
-  background-color: ${COLORS.purple};
+  background-color: ${COLORS.primary};
   color: white;
   cursor: pointer;
 `;
@@ -74,4 +74,8 @@ export const Link = styled.a`
 export const GoogleBtn = styled(GoogleButton)`
   font-size: 4rem;
   ${mobile({ marginBottom: "20px" })}
+`;
+
+export const Error = styled.span`
+  color: red;
 `;
