@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { phone } from "../responsive";
+import { phone } from "../utils/responsive";
 import { Rating } from "@mui/material";
 import { Navigate, useNavigate } from "react-router-dom";
 

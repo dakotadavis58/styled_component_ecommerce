@@ -1,4 +1,4 @@
-const { COLORS } = require("./globalStyles");
+const { COLORS } = require("../globalStyles");
 export const sliderItems = [
   {
     id: 2,

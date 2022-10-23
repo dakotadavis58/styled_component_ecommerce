@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { phone } from "../responsive";
+import { phone } from "../utils/responsive";
 
 const Container = styled.div`
   flex: 1;

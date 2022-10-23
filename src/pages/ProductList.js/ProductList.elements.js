@@ -1,4 +1,4 @@
-import { phone } from "../../responsive";
+import { phone } from "../../utils/responsive";
 
 const { default: styled } = require("styled-components");
 

@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 
 import Newsletter from "../../components/Newsletter";
 import { addProduct } from "../../redux/cartRedux";
-import { publicRequest } from "../../requestMethods";
+import { publicRequest } from "../../utils/requestMethods";
 import { ProductPrice } from "../Cart/Cart.elements";
 import {
   AddContainer,

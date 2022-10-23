@@ -1,11 +1,8 @@
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
-import { useNavigate } from "react-router";
-import { phone } from "../../responsive";
+
 import {
   Bottom,
   Container,
@@ -16,12 +13,10 @@ import {
   PriceDetail,
   ProductAmount,
   ProductAmountContainer,
-  ProductColor,
   ProductDetail,
   ProductId,
   ProductName,
   ProductPrice,
-  ProductSize,
   Summary,
   SummaryItem,
   SummaryItemPrice,
@@ -38,13 +33,13 @@ import {
 } from "./Cart.elements";
 import { deleteProduct, updateProduct } from "../../redux/cartRedux";
 
-const KEY = process.env.REACT_APP_STRIPE;
+// const KEY = process.env.REACT_APP_STRIPE;
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const { products, quantity, total } = cart;
-  const [stripeToken, setStripeToken] = useState(null);
-  const navigate = useNavigate();
+  // const [stripeToken, setStripeToken] = useState(null);
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const deleteItem = (product) => {

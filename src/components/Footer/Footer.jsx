@@ -4,7 +4,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneIcon from "@mui/icons-material/Phone";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import { footerLinks } from "../../data";
+import { footerLinks } from "../../utils/data";
 import {
   Center,
   ContactItem,

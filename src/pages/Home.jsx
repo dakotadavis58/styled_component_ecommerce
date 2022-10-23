@@ -5,7 +5,7 @@ import Categories from "../components/Categories";
 import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
 import Slider from "../components/Slider";
-import { db } from "../firebase";
+import { db } from "../utils/firebase";
 
 const Home = () => {
   const [data, setData] = useState([]);

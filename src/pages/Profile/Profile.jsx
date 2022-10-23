@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { auth } from "../../firebase";
+import { auth } from "../../utils/firebase";
 import { Button } from "../../globalStyles";
 import { logout } from "../../redux/userRedux";
 import { Container, Title, Wrapper } from "./Profile.elements";

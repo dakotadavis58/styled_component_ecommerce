@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
-
 const { default: styled } = require("styled-components");
-const { phone } = require("../../responsive");
+const { phone } = require("../../utils/responsive");
 
 export const Container = styled.div`
   display: flex;

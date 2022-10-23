@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { COLORS } from "../../globalStyles";
-import { mobile, phone } from "../../responsive";
+import { mobile, phone } from "../../utils/responsive";
 
 export const Container = styled.div`
   height: 60px;

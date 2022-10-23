@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { phone } from "../../responsive";
+import { phone } from "../../utils/responsive";
 import {
   Agreement,
   Button,

@@ -1,18 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    products: [],
-    quantity: 0,
-    total: 0,
-  },
+  initialState: Cookies.get("cart")
+    ? JSON.parse(Cookies.get("cart"))
+    : {
+        products: [],
+        quantity: 0,
+        total: 0,
+      },
   reducers: {
     addProduct: (state, action) => {
       state.quantity += 1;
       state.products.push(action.payload);
       state.total += action.payload.price * action.payload.quantity;
       if (state.products.length === 0) state.quantity = 0;
+      Cookies.set("cart", JSON.stringify({ ...state }));
     },
     deleteProduct: (state, action) => {
       state.quantity -= 1;
@@ -23,6 +27,7 @@ const cartSlice = createSlice({
         state.total = 0;
       }
       if (state.total < 0) state.total = 0;
+      Cookies.set("cart", JSON.stringify({ ...state }));
     },
     updateProduct: (state, action) => {
       console.log(action);
@@ -33,6 +38,13 @@ const cartSlice = createSlice({
         state.total = 0;
       }
       if (state.total < 0) state.total = 0;
+      Cookies.set("cart", JSON.stringify({ ...state }));
+    },
+    clearCart: (state, action) => {
+      state.products = [];
+      state.quantity = 0;
+      state.total = 0;
+      Cookies.set("cart", JSON.stringify({ ...state }));
     },
   },
 });

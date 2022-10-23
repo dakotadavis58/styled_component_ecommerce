@@ -12,7 +12,7 @@ import ProductList from "./pages/ProductList.js/ProductList";
 import Product from "./pages/Product.js/Product";
 import { Profile } from "./pages/Profile/Profile";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./firebase";
+import { auth } from "./utils/firebase";
 import { useSelector } from "react-redux";
 
 function App() {

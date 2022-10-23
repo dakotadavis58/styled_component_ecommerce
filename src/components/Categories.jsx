@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { categoryCards } from "../data";
-import { phone } from "../responsive";
+import { categoryCards } from "../utils/data";
+import { phone } from "../utils/responsive";
 import CategoryItem from "./CategoryItem";
 
 const Container = styled.div`

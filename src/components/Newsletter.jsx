@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SendIcon from "@mui/icons-material/Send";
-import { phone } from "../responsive";
+import { phone } from "../utils/responsive";
 
 const Container = styled.div`
   height: 30vh;

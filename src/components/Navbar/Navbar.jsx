@@ -7,8 +7,8 @@ import Badge from "@mui/material/Badge";
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { categories } from "../../data";
-import { auth } from "../../firebase";
+import { categories } from "../../utils/data";
+import { auth } from "../../utils/firebase";
 import { StyledLink } from "../../globalStyles";
 import {
   Categories,

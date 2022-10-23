@@ -1,5 +1,5 @@
 import { COLORS } from "../../globalStyles";
-import { mobile, phone } from "../../responsive";
+import { mobile, phone } from "../../utils/responsive";
 import GoogleButton from "react-google-button";
 
 const { default: styled } = require("styled-components");
