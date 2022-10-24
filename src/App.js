@@ -35,7 +35,7 @@ function App() {
             element={user ? <Navigate replace to="/" /> : <Login />}
           />
 
-          {user.isAdmin && <Route path="/admin" element={<Admin />} />}
+          {user?.isAdmin && <Route path="/admin" element={<Admin />} />}
           <Route
             path="/register"
             element={user ? <Navigate replace to="/" /> : <Register />}
