@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "concurrently \"react-scripts build\" \"cd.. && cd backend && node index.js\"",
+    "build": "concurrently \"react-scripts build\" \"cd .. && cd backend && node index.js\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
