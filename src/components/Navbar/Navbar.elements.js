@@ -22,7 +22,7 @@ export const Left = styled.div`
 export const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
-  ${phone({ display: "none" })}
+  ${mobile({ display: "none" })}
 `;
 export const SearchContainer = styled.div`
   border: 0.5px solid lightGrey;
@@ -57,9 +57,17 @@ export const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  border: 5px solid transparent;
+  display: inline-block;
+  position: static;
+  cursor: pointer;
   ${phone({ fontSize: "12px", marginLeft: "10px" })}
+  @media screen and (max-width: 960px) {
+    font-size: 15px;
+    padding-bottom: 10px;
+  }
   &:hover {
-    border-bottom: ${COLORS.primary} 3px solid;
+    border-bottom: ${COLORS.primary} 5px solid;
   }
 `;
 
@@ -70,8 +78,9 @@ export const Categories = styled.div`
   @media screen and (max-width: 960px) {
     display: flex;
     flex-direction: column;
+    font-size: 50px;
     width: 30vw;
-    height: 100vh;
+    height: 50vh;
     position: absolute;
     top: 90px;
     left: ${({ click }) => (click ? 0 : "-250%")};
@@ -79,6 +88,8 @@ export const Categories = styled.div`
     transition: all 0.5s ease;
     background: white;
     z-index: 1000;
+  }
+  & > * {
   }
 `;
 

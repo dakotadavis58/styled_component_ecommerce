@@ -1,5 +1,7 @@
+import { COLORS } from "../../globalStyles";
+
 const { default: styled } = require("styled-components");
-const { phone } = require("../../utils/responsive");
+const { phone, mobile } = require("../../utils/responsive");
 
 export const Container = styled.div`
   display: flex;
@@ -41,7 +43,7 @@ export const SocialIcon = styled.a`
 export const Center = styled.div`
   flex: 1;
   padding: 20px;
-  ${phone({ display: "none" })}
+  ${mobile({ display: "none" })}
   border-right: 2px solid gray;
 `;
 
@@ -67,7 +69,6 @@ export const ListItem = styled.a`
 export const Right = styled.div`
   flex: 2;
   padding: 20px;
-  ${phone({ backgroundColor: "#fff8f8" })}
 `;
 
 export const ContactItem = styled.a`

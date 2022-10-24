@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import SendIcon from "@mui/icons-material/Send";
 import { phone } from "../utils/responsive";
+import { toast } from "react-toastify";
 
 const Container = styled.div`
   height: 30vh;
-  background-color: #fcf5f5;
+  background-color: #bb94d4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,6 +48,7 @@ const Button = styled.button`
 
 const Newsletter = () => {
   const handleClick = () => {
+    toast("Successfully signed up for newsletter!");
     console.log("newsletter button clicked");
   };
 

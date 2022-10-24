@@ -1,6 +1,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Categories from "../components/Categories";
 import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
@@ -17,6 +18,7 @@ const Home = () => {
       <Categories />
       <Products />
       <Newsletter />
+      <ToastContainer position="bottom-center" limit={1} />
     </div>
   );
 };

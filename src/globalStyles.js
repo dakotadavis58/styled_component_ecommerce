@@ -17,7 +17,7 @@ export const COLORS = {
   light: "F2F2F2",
   darkPurp: "#645CAA",
   medPurp: "#A084CA",
-  lightPurp: "#BFACE0",
+  lightColor: "#BFACE0",
   pink: "#EBC7E8",
   darkBg: "#111111",
   almostWhite: "#F2F2F2",
@@ -65,6 +65,41 @@ export const Button = styled.button`
 
   @media screen and (max-width: 960px) {
     width: 100%;
+  }
+`;
+
+export const NewButton = styled.button`
+  padding: 10px;
+  font-size: 20px;
+  background-color: #ea4c89;
+  cursor: pointer;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  :hover,
+  :focus {
+    background-color: #f082ac;
   }
 `;
 

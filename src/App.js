@@ -14,6 +14,8 @@ import { Profile } from "./pages/Profile/Profile";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./utils/firebase";
 import { useSelector } from "react-redux";
+import "react-toastify/dist/ReactToastify.min.css";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -23,7 +25,6 @@ function App() {
     <>
       <BrowserRouter>
         <GlobalStyle />
-        <ToastContainer position="bottom-center" limit={1} />
         <Announcement />
         <Navbar />
         <Routes>
@@ -33,6 +34,8 @@ function App() {
             path="/login"
             element={user ? <Navigate replace to="/" /> : <Login />}
           />
+
+          {user.isAdmin && <Route path="/admin" element={<Admin />} />}
           <Route
             path="/register"
             element={user ? <Navigate replace to="/" /> : <Register />}
@@ -46,6 +49,7 @@ function App() {
           />
           <Route path="*" element={<h1>404: Page not found</h1>} />
         </Routes>
+        <ToastContainer position="bottom-center" limit={1} />
         <Footer />
       </BrowserRouter>
     </>
