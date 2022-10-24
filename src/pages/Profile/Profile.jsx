@@ -41,7 +41,7 @@ export const Profile = () => {
     try {
       const result = await axios({
         method: "put",
-        url: `http://localhost:5000/api/users/${user._id}`,
+        url: `https://ecommerce-express-server.vercel.app/api/users/${user._id}`,
         headers: { token: `Bearer ${TOKEN}` },
         data: {
           name,
